@@ -5,7 +5,10 @@ import com.ea.todoApp.util.ConnectionFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProjectDAO {
 
@@ -78,6 +81,56 @@ public class ProjectDAO {
 
             }
         }
+    }
+
+    public List<Project> getAll() {
+        String sql = "SELECT * FROM projects";
+
+        List<Project> projects = new ArrayList<>();
+
+        Connection conn = null;
+        PreparedStatement stmt = null;
+
+        ResultSet rset = null;
+
+        try {
+            conn = ConnectionFactory.getConnection();
+            stmt = conn.prepareStatement(sql);
+
+            rset = stmt.executeQuery();
+
+            while (rset.next()) {
+
+                Project project = new Project();
+
+                project.setId(rset.getInt("id"));
+                project.setName(rset.getString("name"));
+                project.setDescription(rset.getString("description"));
+                project.setCreatedAt(rset.getDate("createdAt"));
+                project.setCreatedAt(rset.getDate("updatedAt"));
+
+                projects.add(project);
+            }
+
+        } catch (SQLException ex) {
+            throw new RuntimeException("Erro ao buscar os projetos", ex);
+
+        } finally {
+            try {
+                if (rset != null) {
+                    rset.close();
+                }
+                if (stmt != null) {
+                    stmt.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException ex) {
+                throw new RuntimeException("Erro ao fechar a conexão", ex);
+            }
+        }
+        return projects;
     }
 
 }
