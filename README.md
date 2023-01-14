@@ -10,7 +10,11 @@
 ## ⚙ Funcionalidades
 
 - [x] Criar um novo projeto;
-- [x] Criar uma nova tarefa (vinculada a um projeto).
+- [x] Atualizar um projeto;
+- [x] Deletar um projeto;
+- [x] Criar uma nova tarefa (vinculada a um projeto);
+- [x] Atualizar uma tarefa;
+- [x] Deletar uma tarefa;
 
 ## 🔍 Referências
 
