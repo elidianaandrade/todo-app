@@ -44,4 +44,40 @@ public class ProjectDAO {
 
     }
 
+    public void update(Project project) {
+        String sql = "UPDATE projects SET name = ?, description = ?, createdAt = ?, updatedAt = ? WHERE id = ?";
+
+        Connection conn = null;
+        PreparedStatement stmt = null;
+
+        try {
+            conn = ConnectionFactory.getConnection();
+            stmt = conn.prepareStatement(sql);
+
+            stmt.setString(1, project.getName());
+            stmt.setString(2, project.getDescription());
+            stmt.setDate(3, new java.sql.Date(project.getCreatedAt().getTime()));
+            stmt.setDate(4, new java.sql.Date(project.getUpdatedAt().getTime()));
+            stmt.setInt(4, project.getId());
+
+            stmt.execute();
+
+        } catch (SQLException ex) {
+            throw new RuntimeException("Erro ao atualizar o projeto", ex);
+
+        } finally {
+            try {
+                if (stmt != null) {
+                    stmt.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException ex) {
+                throw new RuntimeException("Erro ao fechar a conexão", ex);
+
+            }
+        }
+    }
+
 }
