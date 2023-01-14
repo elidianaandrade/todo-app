@@ -10,7 +10,44 @@ import java.util.List;
 
 public class TaskDAO {
 
-    public void save(Task task) {}
+    public void save(Task task) {
+        String sql = "INSERT INTO tasks(idProject, name, description, notes, deadline, completed, createdAt, updatedAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+        Connection conn = null;
+        PreparedStatement stmt = null;
+
+        try {
+            conn = ConnectionFactory.getConnection();
+            stmt = conn.prepareStatement(sql);
+
+            stmt.setInt(1, task.getIdProject());
+            stmt.setString(2, task.getName());
+            stmt.setString(3, task.getDescription());
+            stmt.setString(4, task.getNotes());
+            stmt.setDate(5, new java.sql.Date(task.getDeadline().getTime()));
+            stmt.setBoolean(6, task.isCompleted());
+            stmt.setDate(7, new java.sql.Date(task.getCreatedAt().getTime()));
+            stmt.setDate(8, new java.sql.Date(task.getUpdatedAt().getTime()));
+
+            stmt.execute();
+
+        } catch (SQLException ex) {
+            throw new RuntimeException("Erro ao salvar a tarefa " + ex.getMessage(), ex);
+
+        } finally {
+            try {
+                if (stmt != null) {
+                    stmt.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException ex) {
+                throw new RuntimeException("Erro ao fechar a conexão", ex);
+            }
+        }
+
+    }
 
     public void update(Task task) {}
 
