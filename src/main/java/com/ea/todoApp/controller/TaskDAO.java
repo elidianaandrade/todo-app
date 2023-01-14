@@ -49,7 +49,46 @@ public class TaskDAO {
 
     }
 
-    public void update(Task task) {}
+    public void update(Task task) {
+
+        String sql = "UPDATE tasks SET idProject = ?, name = ?, description = ?, notes = ?, deadline = ?, completed = ?, createdAt = ?, updatedAt = ? WHERE id = ?";
+
+        Connection conn = null;
+        PreparedStatement stmt = null;
+
+        try {
+            conn = ConnectionFactory.getConnection();
+            stmt = conn.prepareStatement(sql);
+
+            stmt.setInt     (1, task.getIdProject());
+            stmt.setString  (2, task.getName());
+            stmt.setString  (3, task.getDescription());
+            stmt.setString  (4, task.getNotes());
+            stmt.setDate    (5, new java.sql.Date(task.getDeadline().getTime()));
+            stmt.setBoolean (6, task.isCompleted());
+            stmt.setDate    (7, new java.sql.Date(task.getCreatedAt().getTime()));
+            stmt.setDate    (8, new java.sql.Date(task.getUpdatedAt().getTime()));
+            stmt.setInt     (9, task.getId());
+
+            stmt.execute();
+
+        } catch (SQLException ex) {
+            throw new RuntimeException("Erro em atualizar a tarefa", ex);
+
+        } finally {
+            try {
+                if (stmt != null) {
+                    stmt.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException ex) {
+                throw new RuntimeException("Erro ao fechar a conexão", ex);
+            }
+        }
+
+    }
 
     public void removeById(int taskId) {
         String sql = "DELETE FROM tasks WHERE id = ?";
