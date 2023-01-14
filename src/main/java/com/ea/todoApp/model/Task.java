@@ -9,7 +9,7 @@ public class Task {
     private String name;
     private String description;
     private String notes;
-    private boolean isCompleted;
+    private boolean completed;
     private Date deadline;
     private Date createdAt;
     private Date updatedAt;
@@ -20,10 +20,16 @@ public class Task {
         this.name = name;
         this.description = description;
         this.notes = notes;
-        this.isCompleted = isCompleted;
+        this.completed = isCompleted;
         this.deadline = deadline;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
+    }
+
+    public Task() {
+        this.completed = false;
+        this.createdAt = new Date();
+        this.updatedAt = new Date();
     }
 
     public int getId() {
@@ -67,11 +73,11 @@ public class Task {
     }
 
     public boolean isCompleted() {
-        return isCompleted;
+        return completed;
     }
 
     public void setCompleted(boolean completed) {
-        isCompleted = completed;
+        this.completed = completed;
     }
 
     public Date getDeadline() {
@@ -106,7 +112,7 @@ public class Task {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", notes='" + notes + '\'' +
-                ", isCompleted=" + isCompleted +
+                ", isCompleted=" + completed +
                 ", deadline=" + deadline +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
