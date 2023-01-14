@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.ea.todoApp.view.MainScreen">
+  <grid id="27dc6" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="913" height="740"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <grid id="8e1fe" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-16119012"/>
+          <font name="Inter" size="14" style="0"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <grid id="d39a1" binding="Header" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="25" left="25" bottom="25" right="25"/>
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="1" fill="1" indent="0" use-parent-layout="true">
+                <preferred-size width="606" height="42"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-16119012"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="803b4" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Poppins" size="36" style="1"/>
+                  <foreground color="-197380"/>
+                  <icon value="com/ea/todoApp/icons/check/check2-circle-by-bootstrap.png"/>
+                  <text value=" Todo App"/>
+                </properties>
+              </component>
+              <component id="4e184" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="6" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Inter" size="16" style="0"/>
+                  <foreground color="-7631989"/>
+                  <text value=" Practically organize your projects and tasks"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="a1b60" binding="Section" layout-manager="GridLayoutManager" row-count="4" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="10" vgap="-1">
+            <margin top="5" left="5" bottom="30" right="30"/>
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="true"/>
+            </constraints>
+            <properties>
+              <background color="-16119012"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <grid id="697f9" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-15198158"/>
+                </properties>
+                <border type="none"/>
+                <children/>
+              </grid>
+              <grid id="49f1c" binding="Tasks" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="5"/>
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="7" anchor="1" fill="1" indent="0" use-parent-layout="true">
+                    <preferred-size width="118" height="55"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-16119012"/>
+                  <foreground color="-197380"/>
+                </properties>
+                <border type="line">
+                  <font/>
+                  <color color="-15198158"/>
+                </border>
+                <children>
+                  <component id="dca25" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="2" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Poppins" size="16" style="1"/>
+                      <foreground color="-197380"/>
+                      <text value="Tasks"/>
+                    </properties>
+                  </component>
+                  <component id="e70c6" class="javax.swing.JLabel" binding="ButtonAddTask">
+                    <constraints>
+                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false">
+                        <preferred-size width="40" height="-1"/>
+                        <maximum-size width="40" height="-1"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <icon value="com/ea/todoApp/icons/add/plus-circle-by-bootstrap.png"/>
+                      <text value=""/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <grid id="ea89e" binding="Projects" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="9" fill="0" indent="3" use-parent-layout="true">
+                    <preferred-size width="250" height="55"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-16119012"/>
+                  <foreground color="-16119012"/>
+                </properties>
+                <border type="line">
+                  <color color="-15198158"/>
+                </border>
+                <children>
+                  <component id="b9078" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="2" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font name="Poppins" size="16" style="1"/>
+                      <foreground color="-197380"/>
+                      <text value="Projects"/>
+                    </properties>
+                  </component>
+                  <component id="3aa10" class="javax.swing.JLabel" binding="ButtonAddProject">
+                    <constraints>
+                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false">
+                        <preferred-size width="40" height="-1"/>
+                        <maximum-size width="40" height="-1"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <icon value="com/ea/todoApp/icons/add/plus-circle-by-bootstrap.png"/>
+                      <text value=""/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <grid id="a031d" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="3" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-15198158"/>
+                </properties>
+                <border type="none"/>
+                <children/>
+              </grid>
+            </children>
+          </grid>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>

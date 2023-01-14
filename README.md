@@ -1,6 +1,6 @@
 # TODO APP
 
-## 🎬 Sobre o projeto
+## ✅ Sobre o projeto
  Todo App desenvolvido em Java e Gradle para o programa Start da Capgemini.
 
 ## 💻 Tecnologias
