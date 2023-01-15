@@ -1,16 +1,17 @@
+package view;
 
+import controller.ProjectDAO;
 import javax.swing.JOptionPane;
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
- */
+import model.Project;
 
 
 public class ProjectDialogScreen extends javax.swing.JDialog {
 
+    ProjectDAO projectDAO;
 
-    public ProjectDialogScreen(java.awt.Frame parent, boolean modal) {;
-
+    public ProjectDialogScreen(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
+        initComponents();
     }
 
     /**
@@ -141,7 +142,7 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
                 .addGap(10, 10, 10)
                 .addComponent(JLabelDescription)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1)
                 .addGap(10, 10, 10)
                 .addComponent(JButtonSave)
                 .addGap(0, 0, 0))
