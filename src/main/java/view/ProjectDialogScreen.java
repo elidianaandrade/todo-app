@@ -40,7 +40,9 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
 
         JLabelHeaderProjectDialog.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
         JLabelHeaderProjectDialog.setForeground(new java.awt.Color(252, 252, 252));
+        JLabelHeaderProjectDialog.setIcon(new javax.swing.ImageIcon(getClass().getResource("/folder-plus-by-bootstrap.png"))); // NOI18N
         JLabelHeaderProjectDialog.setText("Projeto");
+        JLabelHeaderProjectDialog.setIconTextGap(10);
 
         javax.swing.GroupLayout JPanelHeaderProjectDialogLayout = new javax.swing.GroupLayout(JPanelHeaderProjectDialog);
         JPanelHeaderProjectDialog.setLayout(JPanelHeaderProjectDialogLayout);
