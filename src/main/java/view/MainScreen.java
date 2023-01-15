@@ -4,6 +4,9 @@ import controller.ProjectDAO;
 import controller.TaskDAO;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import model.Project;
@@ -21,6 +24,9 @@ public class MainScreen extends javax.swing.JFrame {
     public MainScreen() {
         initComponents();
 
+        initDataAccessObjects();
+        initComponentsModel();
+ 
         decorateJTableTasks();
     }
 
@@ -220,17 +226,11 @@ public class MainScreen extends javax.swing.JFrame {
         JListProjectsList.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(24, 24, 50), 1, true));
         JListProjectsList.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         JListProjectsList.setForeground(new java.awt.Color(252, 252, 252));
-        JListProjectsList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         JListProjectsList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         JListProjectsList.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JListProjectsList.setFixedCellHeight(42);
-        JListProjectsList.setMaximumSize(new java.awt.Dimension(54, 200));
+        JListProjectsList.setMaximumSize(new java.awt.Dimension(54, 150));
         JListProjectsList.setName(""); // NOI18N
-        JListProjectsList.setSelectedIndex(0);
         JListProjectsList.setSelectionBackground(new java.awt.Color(19, 19, 41));
         JListProjectsList.setSelectionForeground(new java.awt.Color(252, 252, 252));
         JListProjectsList.setVisibleRowCount(10);
@@ -242,7 +242,7 @@ public class MainScreen extends javax.swing.JFrame {
             JPanelProjectsListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JPanelProjectsListLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addComponent(JScrollPanelProjectsList)
+                .addComponent(JScrollPanelProjectsList, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addGap(10, 10, 10))
         );
         JPanelProjectsListLayout.setVerticalGroup(
@@ -336,8 +336,8 @@ public class MainScreen extends javax.swing.JFrame {
                     .addComponent(JPanelProjectsList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(JPanelMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(JPanelTasks, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(JPanelTasksList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(JPanelTasksList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JPanelTasks, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(34, 34, 34))
         );
         JPanelMainLayout.setVerticalGroup(
@@ -398,6 +398,12 @@ public class MainScreen extends javax.swing.JFrame {
     private void JLabelProjectAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabelProjectAddMouseClicked
         ProjectDialogScreen projectDialogScreen = new ProjectDialogScreen(this, true);
         projectDialogScreen.setVisible(true);
+        
+        projectDialogScreen.addWindowListener(new WindowAdapter() {
+            public void windowClosed(WindowEvent e) {
+                loadProjects();
+            }
+        });
     }//GEN-LAST:event_JLabelProjectAddMouseClicked
 
     private void JLabelTaskAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabelTaskAddMouseClicked
@@ -471,5 +477,29 @@ public class MainScreen extends javax.swing.JFrame {
         
         jTableTasks.setAutoCreateRowSorter(true);
     }
+    
+    private void initDataAccessObjects() {
+        projectDAO = new ProjectDAO();
+        taskDAO = new TaskDAO();
+    }
+    
+    private void loadProjects() {
+        List<Project> projects = projectDAO.getAll();
+
+        projectsModel.clear();
+
+        for (int i = 0; i < projects.size(); i++) {
+            projectsModel.addElement(projects.get(i));
+        }
+        
+        JListProjectsList.setModel(projectsModel);
+    }
+    
+     private void initComponentsModel() {
+        projectsModel = new DefaultListModel();
+        loadProjects();
+    }
+
+
     
 }
