@@ -64,7 +64,7 @@
               <Color blue="fc" green="fc" red="fc" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Nenhuma Tarefa por aqui..."/>
+            <Property name="text" type="java.lang.String" value="No Tasks here..."/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
           </Properties>
         </Component>
@@ -80,7 +80,7 @@
               <Color blue="8b" green="8b" red="8b" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Clique no bot&#xe3;o &quot;+&quot; para inserir uma nova Tarefa."/>
+            <Property name="text" type="java.lang.String" value="Click the &quot;+&quot; button to enter a new Task."/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
           </Properties>
         </Component>
@@ -195,7 +195,7 @@
             <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
               <ComponentRef name="JLabelHeaderSubtitle"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Organize de maneira pratica seus Projetos e Tarefas"/>
+            <Property name="text" type="java.lang.String" value="Organize your Projects and Tasks in a practical way"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JPanel" name="JPanelMain">
@@ -214,7 +214,7 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="JPanelProjects" pref="249" max="32767" attributes="0"/>
+                          <Component id="JPanelProjects" min="-2" pref="243" max="-2" attributes="0"/>
                           <Component id="JPanelProjectsList" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -232,7 +232,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="JPanelProjects" pref="44" max="32767" attributes="0"/>
-                          <Component id="JPanelTasks" pref="0" max="32767" attributes="0"/>
+                          <Component id="JPanelTasks" pref="44" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -268,20 +268,22 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                           <Component id="JLabelProjectTitle" min="-2" pref="163" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                           <Component id="JLabelProjectAdd" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="JLabelProjectTitle" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="JLabelProjectTitle" pref="28" max="32767" attributes="0"/>
+                              <Component id="JLabelProjectAdd" max="32767" attributes="0"/>
+                          </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
-                      <Component id="JLabelProjectAdd" alignment="1" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
@@ -294,7 +296,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="fc" green="fc" red="fc" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Projetos"/>
+                    <Property name="text" type="java.lang.String" value="Projects"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="JLabelProjectAdd">
@@ -308,6 +310,9 @@
                     <Property name="horizontalAlignment" type="int" value="4"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/plus-circle-by-bootstrap.png"/>
+                    </Property>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Cursor em Forma de M&#xe3;o"/>
                     </Property>
                     <Property name="horizontalTextPosition" type="int" value="4"/>
                     <Property name="iconTextGap" type="int" value="0"/>
@@ -343,10 +348,10 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                          <Component id="JPanellTaskTitle" min="-2" pref="351" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="JPanelTaskAdd" min="-2" pref="25" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                          <Component id="JLabelTaskTitle" min="-2" pref="351" max="-2" attributes="0"/>
+                          <EmptySpace pref="127" max="32767" attributes="0"/>
+                          <Component id="JLabelTaskAdd" min="-2" pref="25" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -354,15 +359,17 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="JPanellTaskTitle" min="-2" pref="29" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="JLabelTaskAdd" min="-2" max="-2" attributes="0"/>
+                              <Component id="JLabelTaskTitle" min="-2" pref="29" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
-                      <Component id="JPanelTaskAdd" alignment="1" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="JPanellTaskTitle">
+                <Component class="javax.swing.JLabel" name="JLabelTaskTitle">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Poppins" size="16" style="1"/>
@@ -370,10 +377,10 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="fc" green="fc" red="fc" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Tarefas"/>
+                    <Property name="text" type="java.lang.String" value="Tasks"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="JPanelTaskAdd">
+                <Component class="javax.swing.JLabel" name="JLabelTaskAdd">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Poppins" size="28" style="1"/>
@@ -396,6 +403,9 @@
                       <Dimension value="[11, 29]"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JLabelTaskAddMouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -525,11 +535,11 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="524" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
-                              <Component id="jScrollPane1" max="32767" attributes="0"/>
+                              <Component id="jScrollPane1" pref="530" max="32767" attributes="0"/>
                               <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -582,13 +592,13 @@
                           <Color blue="fc" green="fc" red="fc" type="rgb"/>
                         </Property>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="6" rowCount="6">
-                            <Column editable="false" title="Nome" type="java.lang.String"/>
-                            <Column editable="false" title="Descri&#xe7;&#xe3;o" type="java.lang.String"/>
-                            <Column editable="false" title="Prazo" type="java.lang.String"/>
-                            <Column editable="true" title="Tarefa Conclu&#xed;da" type="java.lang.Boolean"/>
-                            <Column editable="false" title="Editar" type="java.lang.Object"/>
-                            <Column editable="false" title="Excluir" type="java.lang.Object"/>
+                          <Table columnCount="6" rowCount="8">
+                            <Column editable="false" title="Name" type="java.lang.String"/>
+                            <Column editable="false" title="Description" type="java.lang.String"/>
+                            <Column editable="false" title="Deadline" type="java.lang.String"/>
+                            <Column editable="true" title="Completed" type="java.lang.Boolean"/>
+                            <Column editable="false" title="Edit" type="java.lang.Object"/>
+                            <Column editable="false" title="Remove" type="java.lang.Object"/>
                           </Table>
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -625,6 +635,7 @@
                             </Column>
                           </TableColumnModel>
                         </Property>
+                        <Property name="fillsViewportHeight" type="boolean" value="true"/>
                         <Property name="gridColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="29" green="13" red="13" type="rgb"/>
                         </Property>

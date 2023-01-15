@@ -34,7 +34,7 @@ public class TaskDAO {
             stmt.execute();
 
         } catch (SQLException ex) {
-            throw new RuntimeException("Erro ao salvar a tarefa " + ex.getMessage(), ex);
+            throw new RuntimeException("Error saving task " + ex.getMessage(), ex);
 
         } finally {
             try {
@@ -45,7 +45,7 @@ public class TaskDAO {
                     conn.close();
                 }
             } catch (SQLException ex) {
-                throw new RuntimeException("Erro ao fechar a conexão", ex);
+                throw new RuntimeException("Error closing connection", ex);
             }
         }
 
@@ -75,7 +75,7 @@ public class TaskDAO {
             stmt.execute();
 
         } catch (SQLException ex) {
-            throw new RuntimeException("Erro em atualizar a tarefa", ex);
+            throw new RuntimeException("Error updating task", ex);
 
         } finally {
             try {
@@ -86,7 +86,7 @@ public class TaskDAO {
                     conn.close();
                 }
             } catch (SQLException ex) {
-                throw new RuntimeException("Erro ao fechar a conexão", ex);
+                throw new RuntimeException("Error closing connection", ex);
             }
         }
 
@@ -105,7 +105,7 @@ public class TaskDAO {
             stmt.execute();
 
         } catch (SQLException ex) {
-            throw new RuntimeException("Erro ao deletar a tarefa", ex);
+            throw new RuntimeException("Error deleting task", ex);
 
         } finally {
             try {
@@ -116,7 +116,7 @@ public class TaskDAO {
                     conn.close();
                 }
             } catch (SQLException ex) {
-                throw new RuntimeException("Erro ao fechar a conexão", ex);
+                throw new RuntimeException("Error closing connection", ex);
             }
         }
 
@@ -156,7 +156,7 @@ public class TaskDAO {
             }
 
         } catch (SQLException ex) {
-            throw new RuntimeException("Erro ao buscar as tarefas", ex);
+            throw new RuntimeException("Error fetching tasks", ex);
 
         } finally {
             try {
@@ -171,7 +171,7 @@ public class TaskDAO {
                 }
 
             } catch (SQLException ex) {
-                throw new RuntimeException("Erro ao fechar a conexão", ex);
+                throw new RuntimeException("Error closing connection", ex);
 
             }
         }

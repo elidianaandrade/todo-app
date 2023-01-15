@@ -30,7 +30,7 @@ public class ProjectDAO {
             stmt.execute();
 
         } catch (SQLException ex) {
-            throw new RuntimeException("Erro ao salvar o projeto " + ex.getMessage(), ex);
+            throw new RuntimeException("Error saving project " + ex.getMessage(), ex);
 
         } finally {
             try {
@@ -41,7 +41,7 @@ public class ProjectDAO {
                     conn.close();
                 }
             } catch (SQLException ex) {
-                throw new RuntimeException("Erro ao fechar a conexão", ex);
+                throw new RuntimeException("Error closing connection", ex);
             }
         }
 
@@ -66,7 +66,7 @@ public class ProjectDAO {
             stmt.execute();
 
         } catch (SQLException ex) {
-            throw new RuntimeException("Erro ao atualizar o projeto", ex);
+            throw new RuntimeException("Error updating project", ex);
 
         } finally {
             try {
@@ -77,7 +77,7 @@ public class ProjectDAO {
                     conn.close();
                 }
             } catch (SQLException ex) {
-                throw new RuntimeException("Erro ao fechar a conexão", ex);
+                throw new RuntimeException("Error closing project", ex);
 
             }
         }
@@ -113,7 +113,7 @@ public class ProjectDAO {
             }
 
         } catch (SQLException ex) {
-            throw new RuntimeException("Erro ao buscar os projetos", ex);
+            throw new RuntimeException("Error fetching projects", ex);
 
         } finally {
             try {
@@ -127,7 +127,7 @@ public class ProjectDAO {
                     conn.close();
                 }
             } catch (SQLException ex) {
-                throw new RuntimeException("Erro ao fechar a conexão", ex);
+                throw new RuntimeException("Error closing connection", ex);
             }
         }
         return projects;

@@ -1,23 +1,28 @@
 
 package view;
 
+import controller.TaskDAO;
 import java.awt.HeadlessException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
- */
+import model.Project;
+import model.Task;
 
 
 public class TaskDialogScreen extends javax.swing.JDialog {
 
-
+    TaskDAO taskDAO;
+    Project project;
 
     public TaskDialogScreen(java.awt.Frame parent, boolean modal) {
-
+        super(parent, modal);
+        initComponents();
+        
+        taskDAO = new TaskDAO();
     }
 
     /**
@@ -79,7 +84,7 @@ public class TaskDialogScreen extends javax.swing.JDialog {
 
         jLabel1.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(252, 252, 255));
-        jLabel1.setText("Nome");
+        jLabel1.setText("Name");
 
         jTextFieldName.setBackground(new java.awt.Color(24, 24, 50));
         jTextFieldName.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
@@ -96,7 +101,7 @@ public class TaskDialogScreen extends javax.swing.JDialog {
 
         jLabel2.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(252, 252, 252));
-        jLabel2.setText("Descrição");
+        jLabel2.setText("Description");
 
         jScrollPane1.setBackground(new java.awt.Color(24, 24, 50));
         jScrollPane1.setBorder(null);
@@ -114,7 +119,7 @@ public class TaskDialogScreen extends javax.swing.JDialog {
 
         jLabel3.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(252, 252, 255));
-        jLabel3.setText("Prazo");
+        jLabel3.setText("Deadline");
 
         jScrollPane2.setBackground(new java.awt.Color(24, 24, 50));
         jScrollPane2.setBorder(null);
@@ -132,11 +137,11 @@ public class TaskDialogScreen extends javax.swing.JDialog {
 
         jLabel4.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(252, 252, 252));
-        jLabel4.setText("Notas");
+        jLabel4.setText("Notes");
 
         JButtonSaveTask.setBackground(new java.awt.Color(252, 252, 252));
         JButtonSaveTask.setFont(new java.awt.Font("Inter", 0, 12)); // NOI18N
-        JButtonSaveTask.setText("Salvar");
+        JButtonSaveTask.setText("Save");
         JButtonSaveTask.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JButtonSaveTaskMouseClicked(evt);
@@ -207,6 +212,8 @@ public class TaskDialogScreen extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        JButtonSaveTask.getAccessibleContext().setAccessibleName("Save");
+
         javax.swing.GroupLayout JPanelMainProjectDialogLayout = new javax.swing.GroupLayout(JPanelMainProjectDialog);
         JPanelMainProjectDialog.setLayout(JPanelMainProjectDialogLayout);
         JPanelMainProjectDialogLayout.setHorizontalGroup(
@@ -252,7 +259,36 @@ public class TaskDialogScreen extends javax.swing.JDialog {
     }//GEN-LAST:event_JButtonSaveTaskActionPerformed
 
     private void JButtonSaveTaskMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonSaveTaskMouseClicked
+        try {
+            Task task = new Task();
+            task.setIdProject(project.getId());
+            task.setName(jTextFieldName.getText());
+            task.setDescription(jTextAreaDescription.getText());
+            task.setNotes(jTextAreaNotes.getText());
+
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            Date deadline = null;
             
+            try {
+                deadline = dateFormat.parse(jFormattedTextFieldDeadLine.getText());
+                
+            } catch (ParseException ex) {
+                Logger.getLogger(TaskDialogScreen.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            task.setDeadline(deadline);
+            task.setCompleted(false);
+            
+            taskDAO.save(task);
+
+            JOptionPane.showMessageDialog(rootPane, "Task successfully saved!");
+            
+            this.dispose();
+            
+        } catch (HeadlessException ex) {
+            JOptionPane.showMessageDialog(rootPane, ex);
+            
+        } 
     }//GEN-LAST:event_JButtonSaveTaskMouseClicked
 
     private void jFormattedTextFieldDeadLineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldDeadLineActionPerformed
@@ -263,14 +299,9 @@ public class TaskDialogScreen extends javax.swing.JDialog {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Java swing".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -318,4 +349,10 @@ public class TaskDialogScreen extends javax.swing.JDialog {
     private javax.swing.JTextArea jTextAreaNotes;
     private javax.swing.JTextField jTextFieldName;
     // End of variables declaration//GEN-END:variables
+
+    void setProject(Object object) {
+        this.project = project;
+    }
+
+    
 }

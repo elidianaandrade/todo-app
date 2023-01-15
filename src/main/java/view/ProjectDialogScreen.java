@@ -12,6 +12,8 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
     public ProjectDialogScreen(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        
+        projectDAO = new ProjectDAO();
     }
 
     /**
@@ -32,7 +34,7 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
         JLabelDescription = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaDescription = new javax.swing.JTextArea();
-        JButtonSave = new javax.swing.JButton();
+        JButtonSaveProject = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(10, 11, 28));
@@ -42,7 +44,7 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
         JLabelHeaderProjectDialog.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
         JLabelHeaderProjectDialog.setForeground(new java.awt.Color(252, 252, 252));
         JLabelHeaderProjectDialog.setIcon(new javax.swing.ImageIcon(getClass().getResource("/folder-plus-by-bootstrap.png"))); // NOI18N
-        JLabelHeaderProjectDialog.setText("Projeto");
+        JLabelHeaderProjectDialog.setText("Project");
         JLabelHeaderProjectDialog.setIconTextGap(10);
 
         javax.swing.GroupLayout JPanelHeaderProjectDialogLayout = new javax.swing.GroupLayout(JPanelHeaderProjectDialog);
@@ -69,7 +71,7 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
 
         JLabelName.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
         JLabelName.setForeground(new java.awt.Color(252, 252, 255));
-        JLabelName.setText("Nome");
+        JLabelName.setText("Name");
 
         jTextFieldName.setBackground(new java.awt.Color(24, 24, 50));
         jTextFieldName.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
@@ -86,7 +88,7 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
 
         JLabelDescription.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
         JLabelDescription.setForeground(new java.awt.Color(252, 252, 252));
-        JLabelDescription.setText("Descrição");
+        JLabelDescription.setText("Description");
 
         jScrollPane1.setBackground(new java.awt.Color(24, 24, 50));
         jScrollPane1.setBorder(null);
@@ -102,17 +104,17 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
         jTextAreaDescription.setSelectionColor(new java.awt.Color(24, 24, 50));
         jScrollPane1.setViewportView(jTextAreaDescription);
 
-        JButtonSave.setBackground(new java.awt.Color(252, 252, 252));
-        JButtonSave.setFont(new java.awt.Font("Inter", 0, 12)); // NOI18N
-        JButtonSave.setLabel("Salvar");
-        JButtonSave.addMouseListener(new java.awt.event.MouseAdapter() {
+        JButtonSaveProject.setBackground(new java.awt.Color(252, 252, 252));
+        JButtonSaveProject.setFont(new java.awt.Font("Inter", 0, 12)); // NOI18N
+        JButtonSaveProject.setText("Save");
+        JButtonSaveProject.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JButtonSaveMouseClicked(evt);
+                JButtonSaveProjectMouseClicked(evt);
             }
         });
-        JButtonSave.addActionListener(new java.awt.event.ActionListener() {
+        JButtonSaveProject.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JButtonSaveActionPerformed(evt);
+                JButtonSaveProjectActionPerformed(evt);
             }
         });
 
@@ -129,7 +131,7 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
                     .addComponent(jTextFieldName, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelFormLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(JButtonSave)))
+                        .addComponent(JButtonSaveProject)))
                 .addContainerGap())
         );
         JPanelFormLayout.setVerticalGroup(
@@ -144,7 +146,7 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1)
                 .addGap(10, 10, 10)
-                .addComponent(JButtonSave)
+                .addComponent(JButtonSaveProject)
                 .addGap(0, 0, 0))
         );
 
@@ -187,26 +189,34 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNameActionPerformed
 
-    private void JButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonSaveActionPerformed
+    private void JButtonSaveProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonSaveProjectActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_JButtonSaveActionPerformed
+    }//GEN-LAST:event_JButtonSaveProjectActionPerformed
 
-    private void JButtonSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonSaveMouseClicked
+    private void JButtonSaveProjectMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonSaveProjectMouseClicked
+        try {
+            Project project = new Project();
+            project.setName(jTextFieldName.getText());
+            project.setDescription(jTextAreaDescription.getText());
 
-    }//GEN-LAST:event_JButtonSaveMouseClicked
+            projectDAO.save(project);
+
+            JOptionPane.showMessageDialog(rootPane, "Project successfully saved!");
+            dispose();
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, e);
+        }
+        
+    }//GEN-LAST:event_JButtonSaveProjectMouseClicked
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Java swing".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -238,7 +248,7 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JButtonSave;
+    private javax.swing.JButton JButtonSaveProject;
     private javax.swing.JLabel JLabelDescription;
     private javax.swing.JLabel JLabelHeaderProjectDialog;
     private javax.swing.JLabel JLabelName;
