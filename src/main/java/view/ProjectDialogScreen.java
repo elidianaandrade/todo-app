@@ -1,20 +1,16 @@
+
+import javax.swing.JOptionPane;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 
-/**
- *
- * @author Flitz
- */
+
 public class ProjectDialogScreen extends javax.swing.JDialog {
 
-    /**
-     * Creates new form ProjectDialogScreen
-     */
-    public ProjectDialogScreen(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
-        initComponents();
+
+    public ProjectDialogScreen(java.awt.Frame parent, boolean modal) {;
+
     }
 
     /**
@@ -31,10 +27,10 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
         JPanelMainProjectDialog = new javax.swing.JPanel();
         JPanelForm = new javax.swing.JPanel();
         JLabelName = new javax.swing.JLabel();
-        JTextFieldName = new javax.swing.JTextField();
+        jTextFieldName = new javax.swing.JTextField();
         JLabelDescription = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jTextAreaDescription = new javax.swing.JTextArea();
         JButtonSave = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -53,7 +49,7 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
             .addGroup(JPanelHeaderProjectDialogLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(JLabelHeaderProjectDialog, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
         JPanelHeaderProjectDialogLayout.setVerticalGroup(
             JPanelHeaderProjectDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -72,16 +68,16 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
         JLabelName.setForeground(new java.awt.Color(252, 252, 255));
         JLabelName.setText("Nome");
 
-        JTextFieldName.setBackground(new java.awt.Color(24, 24, 50));
-        JTextFieldName.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
-        JTextFieldName.setForeground(new java.awt.Color(252, 252, 252));
-        JTextFieldName.setBorder(null);
-        JTextFieldName.setMargin(new java.awt.Insets(5, 6, 5, 6));
-        JTextFieldName.setSelectedTextColor(new java.awt.Color(252, 252, 252));
-        JTextFieldName.setSelectionColor(new java.awt.Color(24, 24, 50));
-        JTextFieldName.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldName.setBackground(new java.awt.Color(24, 24, 50));
+        jTextFieldName.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
+        jTextFieldName.setForeground(new java.awt.Color(252, 252, 252));
+        jTextFieldName.setBorder(null);
+        jTextFieldName.setMargin(new java.awt.Insets(5, 6, 5, 6));
+        jTextFieldName.setSelectedTextColor(new java.awt.Color(252, 252, 252));
+        jTextFieldName.setSelectionColor(new java.awt.Color(24, 24, 50));
+        jTextFieldName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTextFieldNameActionPerformed(evt);
+                jTextFieldNameActionPerformed(evt);
             }
         });
 
@@ -92,20 +88,25 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
         jScrollPane1.setBackground(new java.awt.Color(24, 24, 50));
         jScrollPane1.setBorder(null);
 
-        jTextArea1.setBackground(new java.awt.Color(24, 24, 50));
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
-        jTextArea1.setForeground(new java.awt.Color(252, 252, 252));
-        jTextArea1.setRows(5);
-        jTextArea1.setBorder(null);
-        jTextArea1.setMargin(new java.awt.Insets(5, 6, 5, 6));
-        jTextArea1.setSelectedTextColor(new java.awt.Color(252, 252, 252));
-        jTextArea1.setSelectionColor(new java.awt.Color(24, 24, 50));
-        jScrollPane1.setViewportView(jTextArea1);
+        jTextAreaDescription.setBackground(new java.awt.Color(24, 24, 50));
+        jTextAreaDescription.setColumns(20);
+        jTextAreaDescription.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
+        jTextAreaDescription.setForeground(new java.awt.Color(252, 252, 252));
+        jTextAreaDescription.setRows(5);
+        jTextAreaDescription.setBorder(null);
+        jTextAreaDescription.setMargin(new java.awt.Insets(5, 6, 5, 6));
+        jTextAreaDescription.setSelectedTextColor(new java.awt.Color(252, 252, 252));
+        jTextAreaDescription.setSelectionColor(new java.awt.Color(24, 24, 50));
+        jScrollPane1.setViewportView(jTextAreaDescription);
 
         JButtonSave.setBackground(new java.awt.Color(252, 252, 252));
         JButtonSave.setFont(new java.awt.Font("Inter", 0, 12)); // NOI18N
         JButtonSave.setLabel("Salvar");
+        JButtonSave.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JButtonSaveMouseClicked(evt);
+            }
+        });
         JButtonSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JButtonSaveActionPerformed(evt);
@@ -122,7 +123,7 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
                     .addComponent(JLabelName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(JLabelDescription, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1)
-                    .addComponent(JTextFieldName, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jTextFieldName, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelFormLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(JButtonSave)))
@@ -134,7 +135,7 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
                 .addGap(10, 10, 10)
                 .addComponent(JLabelName)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addComponent(JLabelDescription)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -179,13 +180,17 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JTextFieldNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTextFieldNameActionPerformed
+    private void jTextFieldNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_JTextFieldNameActionPerformed
+    }//GEN-LAST:event_jTextFieldNameActionPerformed
 
     private void JButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonSaveActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JButtonSaveActionPerformed
+
+    private void JButtonSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonSaveMouseClicked
+
+    }//GEN-LAST:event_JButtonSaveMouseClicked
 
     /**
      * @param args the command line arguments
@@ -237,8 +242,8 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
     private javax.swing.JPanel JPanelForm;
     private javax.swing.JPanel JPanelHeaderProjectDialog;
     private javax.swing.JPanel JPanelMainProjectDialog;
-    private javax.swing.JTextField JTextFieldName;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextAreaDescription;
+    private javax.swing.JTextField jTextFieldName;
     // End of variables declaration//GEN-END:variables
 }

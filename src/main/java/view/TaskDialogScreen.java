@@ -1,20 +1,23 @@
+
+package view;
+
+import java.awt.HeadlessException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 
-/**
- *
- * @author Flitz
- */
-public class ProjectDialogScreen extends javax.swing.JDialog {
 
-    /**
-     * Creates new form ProjectDialogScreen
-     */
-    public ProjectDialogScreen(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
-        initComponents();
+public class TaskDialogScreen extends javax.swing.JDialog {
+
+
+
+    public TaskDialogScreen(java.awt.Frame parent, boolean modal) {
+
     }
 
     /**
@@ -31,19 +34,18 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
         JPanelMainProjectDialog = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextFieldName = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jTextField2 = new javax.swing.JTextField();
+        jTextAreaDescription = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        jTextAreaNotes = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        JButtonSaveTask = new javax.swing.JButton();
+        jFormattedTextFieldDeadLine = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setBackground(new java.awt.Color(10, 11, 28));
 
         JPanelHeaderProjectDialog.setBackground(new java.awt.Color(10, 11, 28));
 
@@ -77,16 +79,16 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
         jLabel1.setForeground(new java.awt.Color(252, 252, 255));
         jLabel1.setText("Nome");
 
-        jTextField1.setBackground(new java.awt.Color(24, 24, 50));
-        jTextField1.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(252, 252, 252));
-        jTextField1.setBorder(null);
-        jTextField1.setMargin(new java.awt.Insets(5, 6, 5, 6));
-        jTextField1.setSelectedTextColor(new java.awt.Color(252, 252, 252));
-        jTextField1.setSelectionColor(new java.awt.Color(24, 24, 50));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldName.setBackground(new java.awt.Color(24, 24, 50));
+        jTextFieldName.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
+        jTextFieldName.setForeground(new java.awt.Color(252, 252, 252));
+        jTextFieldName.setBorder(null);
+        jTextFieldName.setMargin(new java.awt.Insets(5, 6, 5, 6));
+        jTextFieldName.setSelectedTextColor(new java.awt.Color(252, 252, 252));
+        jTextFieldName.setSelectionColor(new java.awt.Color(24, 24, 50));
+        jTextFieldName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jTextFieldNameActionPerformed(evt);
             }
         });
 
@@ -97,29 +99,16 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
         jScrollPane1.setBackground(new java.awt.Color(24, 24, 50));
         jScrollPane1.setBorder(null);
 
-        jTextArea1.setBackground(new java.awt.Color(24, 24, 50));
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
-        jTextArea1.setForeground(new java.awt.Color(252, 252, 252));
-        jTextArea1.setRows(5);
-        jTextArea1.setBorder(null);
-        jTextArea1.setMargin(new java.awt.Insets(5, 6, 5, 6));
-        jTextArea1.setSelectedTextColor(new java.awt.Color(252, 252, 252));
-        jTextArea1.setSelectionColor(new java.awt.Color(24, 24, 50));
-        jScrollPane1.setViewportView(jTextArea1);
-
-        jTextField2.setBackground(new java.awt.Color(24, 24, 50));
-        jTextField2.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(252, 252, 252));
-        jTextField2.setBorder(null);
-        jTextField2.setMargin(new java.awt.Insets(5, 6, 5, 6));
-        jTextField2.setSelectedTextColor(new java.awt.Color(252, 252, 252));
-        jTextField2.setSelectionColor(new java.awt.Color(24, 24, 50));
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
+        jTextAreaDescription.setBackground(new java.awt.Color(24, 24, 50));
+        jTextAreaDescription.setColumns(20);
+        jTextAreaDescription.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
+        jTextAreaDescription.setForeground(new java.awt.Color(252, 252, 252));
+        jTextAreaDescription.setRows(5);
+        jTextAreaDescription.setBorder(null);
+        jTextAreaDescription.setMargin(new java.awt.Insets(5, 6, 5, 6));
+        jTextAreaDescription.setSelectedTextColor(new java.awt.Color(252, 252, 252));
+        jTextAreaDescription.setSelectionColor(new java.awt.Color(24, 24, 50));
+        jScrollPane1.setViewportView(jTextAreaDescription);
 
         jLabel3.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(252, 252, 255));
@@ -128,25 +117,47 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
         jScrollPane2.setBackground(new java.awt.Color(24, 24, 50));
         jScrollPane2.setBorder(null);
 
-        jTextArea2.setBackground(new java.awt.Color(24, 24, 50));
-        jTextArea2.setColumns(20);
-        jTextArea2.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
-        jTextArea2.setForeground(new java.awt.Color(252, 252, 252));
-        jTextArea2.setRows(5);
-        jTextArea2.setBorder(null);
-        jTextArea2.setMargin(new java.awt.Insets(5, 6, 5, 6));
-        jTextArea2.setSelectedTextColor(new java.awt.Color(252, 252, 252));
-        jTextArea2.setSelectionColor(new java.awt.Color(24, 24, 50));
-        jScrollPane2.setViewportView(jTextArea2);
+        jTextAreaNotes.setBackground(new java.awt.Color(24, 24, 50));
+        jTextAreaNotes.setColumns(20);
+        jTextAreaNotes.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
+        jTextAreaNotes.setForeground(new java.awt.Color(252, 252, 252));
+        jTextAreaNotes.setRows(5);
+        jTextAreaNotes.setBorder(null);
+        jTextAreaNotes.setMargin(new java.awt.Insets(5, 6, 5, 6));
+        jTextAreaNotes.setSelectedTextColor(new java.awt.Color(252, 252, 252));
+        jTextAreaNotes.setSelectionColor(new java.awt.Color(24, 24, 50));
+        jScrollPane2.setViewportView(jTextAreaNotes);
 
         jLabel4.setFont(new java.awt.Font("Inter", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(252, 252, 252));
         jLabel4.setText("Notas");
 
-        jButton1.setText("Salvar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        JButtonSaveTask.setBackground(new java.awt.Color(252, 252, 252));
+        JButtonSaveTask.setFont(new java.awt.Font("Inter", 0, 12)); // NOI18N
+        JButtonSaveTask.setText("Salvar");
+        JButtonSaveTask.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JButtonSaveTaskMouseClicked(evt);
+            }
+        });
+        JButtonSaveTask.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                JButtonSaveTaskActionPerformed(evt);
+            }
+        });
+
+        jFormattedTextFieldDeadLine.setBackground(new java.awt.Color(24, 24, 50));
+        jFormattedTextFieldDeadLine.setBorder(null);
+        jFormattedTextFieldDeadLine.setForeground(new java.awt.Color(252, 252, 252));
+        jFormattedTextFieldDeadLine.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        jFormattedTextFieldDeadLine.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
+        jFormattedTextFieldDeadLine.setMinimumSize(new java.awt.Dimension(64, 20));
+        jFormattedTextFieldDeadLine.setPreferredSize(new java.awt.Dimension(64, 22));
+        jFormattedTextFieldDeadLine.setSelectedTextColor(new java.awt.Color(252, 252, 252));
+        jFormattedTextFieldDeadLine.setSelectionColor(new java.awt.Color(10, 11, 28));
+        jFormattedTextFieldDeadLine.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextFieldDeadLineActionPerformed(evt);
             }
         });
 
@@ -160,14 +171,14 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 358, Short.MAX_VALUE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jTextFieldName, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 358, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1)))
+                        .addComponent(JButtonSaveTask))
+                    .addComponent(jFormattedTextFieldDeadLine, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -176,7 +187,7 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
                 .addGap(10, 10, 10)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -184,13 +195,13 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
                 .addGap(10, 10, 10)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jFormattedTextFieldDeadLine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
-                .addComponent(jButton1)
+                .addComponent(JButtonSaveTask)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -230,17 +241,21 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jTextFieldNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jTextFieldNameActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void JButtonSaveTaskActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonSaveTaskActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_JButtonSaveTaskActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void JButtonSaveTaskMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JButtonSaveTaskMouseClicked
+            
+    }//GEN-LAST:event_JButtonSaveTaskMouseClicked
+
+    private void jFormattedTextFieldDeadLineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldDeadLineActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jFormattedTextFieldDeadLineActionPerformed
 
     /**
      * @param args the command line arguments
@@ -259,20 +274,20 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ProjectDialogScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TaskDialogScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ProjectDialogScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TaskDialogScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ProjectDialogScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TaskDialogScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ProjectDialogScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TaskDialogScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                ProjectDialogScreen dialog = new ProjectDialogScreen(new javax.swing.JFrame(), true);
+                TaskDialogScreen dialog = new TaskDialogScreen(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -285,10 +300,11 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JButtonSaveTask;
     private javax.swing.JLabel JLabelHeaderProjectDialog;
     private javax.swing.JPanel JPanelHeaderProjectDialog;
     private javax.swing.JPanel JPanelMainProjectDialog;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JFormattedTextField jFormattedTextFieldDeadLine;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -296,9 +312,8 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextArea jTextAreaDescription;
+    private javax.swing.JTextArea jTextAreaNotes;
+    private javax.swing.JTextField jTextFieldName;
     // End of variables declaration//GEN-END:variables
 }

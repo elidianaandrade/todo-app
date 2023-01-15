@@ -1,7 +1,7 @@
-package com.ea.todoApp.controller;
+package controller;
 
-import com.ea.todoApp.model.Project;
-import com.ea.todoApp.util.ConnectionFactory;
+import model.Project;
+import util.ConnectionFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

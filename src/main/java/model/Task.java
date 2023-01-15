@@ -1,24 +1,33 @@
-package com.ea.todoApp.model;
+package model;
 
 import java.util.Date;
 
-public class Project {
+public class Task {
 
     private int id;
+    private int idProject;
     private String name;
     private String description;
+    private String notes;
+    private boolean completed;
+    private Date deadline;
     private Date createdAt;
     private Date updatedAt;
 
-    public Project(int id, String name, String description, Date createdAt, Date updatedAt) {
+    public Task(int id, int idProject, String name, String description, String notes, boolean isCompleted, Date deadline, Date createdAt, Date updatedAt) {
         this.id = id;
+        this.idProject = idProject;
         this.name = name;
         this.description = description;
+        this.notes = notes;
+        this.completed = isCompleted;
+        this.deadline = deadline;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
 
-    public Project() {
+    public Task() {
+        this.completed = false;
         this.createdAt = new Date();
         this.updatedAt = new Date();
     }
@@ -29,6 +38,14 @@ public class Project {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getIdProject() {
+        return idProject;
+    }
+
+    public void setIdProject(int idProject) {
+        this.idProject = idProject;
     }
 
     public String getName() {
@@ -45,6 +62,30 @@ public class Project {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
+    }
+
+    public Date getDeadline() {
+        return deadline;
+    }
+
+    public void setDeadline(Date deadline) {
+        this.deadline = deadline;
     }
 
     public Date getCreatedAt() {
@@ -65,10 +106,14 @@ public class Project {
 
     @Override
     public String toString() {
-        return "Project{" +
+        return "Task{" +
                 "id=" + id +
+                ", idProject=" + idProject +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
+                ", notes='" + notes + '\'' +
+                ", isCompleted=" + completed +
+                ", deadline=" + deadline +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
                 '}';

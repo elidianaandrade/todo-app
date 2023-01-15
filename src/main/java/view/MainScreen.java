@@ -1,19 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+package view;
 
-/**
- *
- * @author Flitz
- */
+import java.awt.Color;
+import java.awt.Font;
+
+
 public class MainScreen extends javax.swing.JFrame {
 
-    /**
-     * Creates new form MainScreen
-     */
     public MainScreen() {
         initComponents();
+        decorateJTableTasks();
     }
 
     /**
@@ -39,6 +34,8 @@ public class MainScreen extends javax.swing.JFrame {
         JScrollPanelProjectsList = new javax.swing.JScrollPane();
         JListProjectsList = new javax.swing.JList<>();
         JPanelTasksList = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableTasks = new javax.swing.JTable();
         JPanelEmptyList = new javax.swing.JPanel();
         JLabelEmptyListIcon = new javax.swing.JLabel();
         JLabelEmptyListTitle = new javax.swing.JLabel();
@@ -58,7 +55,7 @@ public class MainScreen extends javax.swing.JFrame {
         JLabelHeaderSubtitle.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         JLabelHeaderSubtitle.setForeground(new java.awt.Color(138, 139, 139));
         JLabelHeaderSubtitle.setLabelFor(JLabelHeaderSubtitle);
-        JLabelHeaderSubtitle.setText("Organize de maneira prática seus Projetos e Tarefas");
+        JLabelHeaderSubtitle.setText("Organize de maneira pratica seus Projetos e Tarefas");
 
         JPanelMain.setBackground(new java.awt.Color(10, 11, 28));
         JPanelMain.setForeground(new java.awt.Color(252, 252, 252));
@@ -77,6 +74,11 @@ public class MainScreen extends javax.swing.JFrame {
         JLabelProjectAdd.setText("+");
         JLabelProjectAdd.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         JLabelProjectAdd.setIconTextGap(0);
+        JLabelProjectAdd.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JLabelProjectAddMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout JPanelProjectsLayout = new javax.swing.GroupLayout(JPanelProjects);
         JPanelProjects.setLayout(JPanelProjectsLayout);
@@ -98,8 +100,6 @@ public class MainScreen extends javax.swing.JFrame {
                     .addComponent(JLabelProjectAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
-
-        JLabelProjectAdd.getAccessibleContext().setAccessibleName("+");
 
         JPanelTasks.setBackground(new java.awt.Color(10, 11, 28));
         JPanelTasks.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(24, 24, 50), 2, true));
@@ -149,7 +149,7 @@ public class MainScreen extends javax.swing.JFrame {
         JScrollPanelProjectsList.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
 
         JListProjectsList.setBackground(new java.awt.Color(24, 24, 50));
-        JListProjectsList.setBorder(null);
+        JListProjectsList.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(24, 24, 50), 1, true));
         JListProjectsList.setFont(new java.awt.Font("Inter", 0, 16)); // NOI18N
         JListProjectsList.setForeground(new java.awt.Color(252, 252, 252));
         JListProjectsList.setModel(new javax.swing.AbstractListModel<String>() {
@@ -163,7 +163,7 @@ public class MainScreen extends javax.swing.JFrame {
         JListProjectsList.setMaximumSize(new java.awt.Dimension(54, 200));
         JListProjectsList.setName(""); // NOI18N
         JListProjectsList.setSelectedIndex(0);
-        JListProjectsList.setSelectionBackground(new java.awt.Color(10, 11, 28));
+        JListProjectsList.setSelectionBackground(new java.awt.Color(19, 19, 41));
         JListProjectsList.setSelectionForeground(new java.awt.Color(252, 252, 252));
         JListProjectsList.setVisibleRowCount(10);
         JScrollPanelProjectsList.setViewportView(JListProjectsList);
@@ -187,6 +187,49 @@ public class MainScreen extends javax.swing.JFrame {
 
         JPanelTasksList.setBackground(new java.awt.Color(24, 24, 50));
         JPanelTasksList.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(24, 24, 50), 1, true));
+
+        jScrollPane1.setBackground(new java.awt.Color(24, 24, 50));
+        jScrollPane1.setBorder(null);
+        jScrollPane1.setForeground(new java.awt.Color(252, 252, 252));
+        jScrollPane1.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
+
+        jTableTasks.setBackground(new java.awt.Color(24, 24, 50));
+        jTableTasks.setFont(new java.awt.Font("Inter", 0, 14)); // NOI18N
+        jTableTasks.setForeground(new java.awt.Color(252, 252, 252));
+        jTableTasks.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Nome", "Descrição", "Prazo", "Tarefa Concluída", "Editar", "Excluir"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Boolean.class, java.lang.Object.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, true, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTableTasks.setGridColor(new java.awt.Color(19, 19, 41));
+        jTableTasks.setRowHeight(35);
+        jTableTasks.setSelectionBackground(new java.awt.Color(19, 19, 41));
+        jTableTasks.setSelectionForeground(new java.awt.Color(252, 252, 252));
+        jTableTasks.setShowGrid(false);
+        jTableTasks.setShowHorizontalLines(true);
+        jTableTasks.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(jTableTasks);
 
         JPanelEmptyList.setBackground(new java.awt.Color(24, 24, 50));
 
@@ -229,23 +272,35 @@ public class MainScreen extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        JLabelEmptyListIcon.getAccessibleContext().setAccessibleName("");
-
         javax.swing.GroupLayout JPanelTasksListLayout = new javax.swing.GroupLayout(JPanelTasksList);
         JPanelTasksList.setLayout(JPanelTasksListLayout);
         JPanelTasksListLayout.setHorizontalGroup(
             JPanelTasksListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JPanelTasksListLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(JPanelEmptyList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(40, 40, 40))
+            .addGap(0, 452, Short.MAX_VALUE)
+            .addGroup(JPanelTasksListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(JPanelTasksListLayout.createSequentialGroup()
+                    .addGap(0, 0, 0)
+                    .addComponent(jScrollPane1)
+                    .addGap(0, 0, 0)))
+            .addGroup(JPanelTasksListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(JPanelTasksListLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(JPanelEmptyList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         JPanelTasksListLayout.setVerticalGroup(
             JPanelTasksListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JPanelTasksListLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(JPanelEmptyList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
+            .addGap(0, 427, Short.MAX_VALUE)
+            .addGroup(JPanelTasksListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(JPanelTasksListLayout.createSequentialGroup()
+                    .addGap(0, 0, 0)
+                    .addComponent(jScrollPane1)
+                    .addGap(0, 0, 0)))
+            .addGroup(JPanelTasksListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(JPanelTasksListLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(JPanelEmptyList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout JPanelMainLayout = new javax.swing.GroupLayout(JPanelMain);
@@ -315,6 +370,11 @@ public class MainScreen extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void JLabelProjectAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabelProjectAddMouseClicked
+
+
+    }//GEN-LAST:event_JLabelProjectAddMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -326,7 +386,7 @@ public class MainScreen extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Java swing".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -369,5 +429,20 @@ public class MainScreen extends javax.swing.JFrame {
     private javax.swing.JPanel JPanelTasksList;
     private javax.swing.JLabel JPanellTaskTitle;
     private javax.swing.JScrollPane JScrollPanelProjectsList;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTableTasks;
     // End of variables declaration//GEN-END:variables
+
+    private void decorateJTableTasks() {
+        
+        jTableTasks.getTableHeader().setFont(new Font("Poppins", Font.BOLD, 14));
+        jTableTasks.getTableHeader().setOpaque(false);
+        jTableTasks.getTableHeader().setBackground(new Color(19, 19, 41));
+        jTableTasks.getTableHeader().setForeground(new Color(252, 252, 252));
+
+        jTableTasks.setAutoCreateRowSorter(true);
+    }
+      
+
+
 }
