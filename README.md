@@ -14,7 +14,14 @@
 - [x] Deletar um projeto;
 - [x] Criar uma nova tarefa (vinculada a um projeto);
 - [x] Atualizar uma tarefa;
-- [x] Deletar uma tarefa;
+- [x] Deletar uma tarefa.
+
+<img alt="" src="https://raw.githubusercontent.com/elidianaandrade/todo-app/main/src/main/resources/todoapp-notasks-screen.JPG?token=GHSAT0AAAAAAB2SIMU5TIZTKEGTLMQMNYHCY6EVUQQ">
+<img alt="" src="https://raw.githubusercontent.com/elidianaandrade/todo-app/main/src/main/resources/todoapp-screen.jpg?token=GHSAT0AAAAAAB2SIMU4O4HVAGGW4SPZCC3AY6EVUWQ">
+<img alt="" src="https://raw.githubusercontent.com/elidianaandrade/todo-app/main/src/main/resources/todoapp-projectdialog-screen.JPG?token=GHSAT0AAAAAAB2SIMU5VDWY76IRA67XXZFCY6EVUTA">
+<img alt="" src="https://raw.githubusercontent.com/elidianaandrade/todo-app/main/src/main/resources/todoapp-taskdialog-screen.JPG?token=GHSAT0AAAAAAB2SIMU443XJXYXAO3MWMI6WY6EVUZA">
+
+<br>
 
 ## 🔍 Referências
 
