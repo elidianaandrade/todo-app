@@ -179,5 +179,59 @@ public class TaskDAO {
         return tasks;
 
     }
+    
+    public List<Task> getByProjectId(int id) {
+        String sql = "SELECT * FROM tasks where idProject = ?";
+
+        List<Task> tasks = new ArrayList<>();
+
+        Connection conn = null;
+        PreparedStatement stmt = null;
+
+        ResultSet rset = null;
+
+        try {
+            conn = ConnectionFactory.getConnection();
+            stmt = conn.prepareStatement(sql);
+
+            stmt.setInt(1, id);
+
+            rset = stmt.executeQuery();
+
+            while (rset.next()) {
+
+                Task task = new Task();
+
+                task.setId(rset.getInt("id"));
+                task.setIdProject(rset.getInt("idProject"));
+                task.setName(rset.getString("name"));
+                task.setDescription(rset.getString("description"));
+                task.setNotes(rset.getString("notes"));
+                task.setDeadline(rset.getDate("deadline"));
+                task.setCompleted(rset.getBoolean("completed"));
+                task.setCreatedAt(rset.getDate("createdAt"));
+                task.setCreatedAt(rset.getDate("updatedAt"));
+
+                tasks.add(task);
+            }
+        } catch (SQLException ex) {
+            throw new RuntimeException("Erro ao buscar as tarefas", ex);
+        } finally {
+            try {
+                if (rset != null) {
+                    rset.close();
+                }
+                if (stmt != null) {
+                    stmt.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException ex) {
+                throw new RuntimeException("Error closing connection", ex);
+            }
+        }
+        return tasks;
+    }
 
 }

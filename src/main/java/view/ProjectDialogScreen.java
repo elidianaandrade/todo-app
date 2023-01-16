@@ -35,6 +35,8 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaDescription = new javax.swing.JTextArea();
         JButtonSaveProject = new javax.swing.JButton();
+        JLabelCampoNameObrigatorio1 = new javax.swing.JLabel();
+        JLabelCampoNameObrigatorio = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(10, 11, 28));
@@ -118,6 +120,10 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
             }
         });
 
+        JLabelCampoNameObrigatorio1.setFont(new java.awt.Font("Inter", 0, 12)); // NOI18N
+        JLabelCampoNameObrigatorio1.setForeground(new java.awt.Color(204, 0, 0));
+        JLabelCampoNameObrigatorio1.setText("Campo obrigatório.");
+
         javax.swing.GroupLayout JPanelFormLayout = new javax.swing.GroupLayout(JPanelForm);
         JPanelForm.setLayout(JPanelFormLayout);
         JPanelFormLayout.setHorizontalGroup(
@@ -127,11 +133,14 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
                 .addGroup(JPanelFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(JLabelName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(JLabelDescription, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
                     .addComponent(jTextFieldName, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelFormLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(JButtonSaveProject)))
+                        .addComponent(JButtonSaveProject))
+                    .addGroup(JPanelFormLayout.createSequentialGroup()
+                        .addComponent(JLabelCampoNameObrigatorio1)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         JPanelFormLayout.setVerticalGroup(
@@ -141,13 +150,15 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
                 .addComponent(JLabelName)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JLabelCampoNameObrigatorio1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(JLabelDescription)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1)
-                .addGap(10, 10, 10)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(JButtonSaveProject)
-                .addGap(0, 0, 0))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout JPanelMainProjectDialogLayout = new javax.swing.GroupLayout(JPanelMainProjectDialog);
@@ -161,10 +172,12 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
         );
         JPanelMainProjectDialogLayout.setVerticalGroup(
             JPanelMainProjectDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JPanelMainProjectDialogLayout.createSequentialGroup()
-                .addComponent(JPanelForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(15, 15, 15))
+            .addComponent(JPanelForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
+
+        JLabelCampoNameObrigatorio.setFont(new java.awt.Font("Inter", 0, 12)); // NOI18N
+        JLabelCampoNameObrigatorio.setForeground(new java.awt.Color(204, 0, 0));
+        JLabelCampoNameObrigatorio.setText("Campo obrigatório.");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -172,14 +185,23 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(JPanelHeaderProjectDialog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(JPanelMainProjectDialog, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(127, 127, 127)
+                    .addComponent(JLabelCampoNameObrigatorio)
+                    .addContainerGap(127, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(JPanelHeaderProjectDialog, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(JPanelMainProjectDialog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+                .addComponent(JPanelMainProjectDialog, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(135, 135, 135)
+                    .addComponent(JLabelCampoNameObrigatorio)
+                    .addContainerGap(187, Short.MAX_VALUE)))
         );
 
         pack();
@@ -249,6 +271,8 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JButtonSaveProject;
+    private javax.swing.JLabel JLabelCampoNameObrigatorio;
+    private javax.swing.JLabel JLabelCampoNameObrigatorio1;
     private javax.swing.JLabel JLabelDescription;
     private javax.swing.JLabel JLabelHeaderProjectDialog;
     private javax.swing.JLabel JLabelName;
