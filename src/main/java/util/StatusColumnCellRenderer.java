@@ -22,10 +22,11 @@ public class StatusColumnCellRenderer extends DefaultTableCellRenderer {
         Task task = taskModel.getTasks().get(row);
 
         if (task.getDeadline().after(new Date())) {
-            label.setBackground(new Color(46, 21, 36));
-           
-        } else {
             label.setBackground(new Color(19, 38, 40));
+
+        } else {
+            label.setBackground(new Color(46, 21, 36));
+
         }
         
         return label;

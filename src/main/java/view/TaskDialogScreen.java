@@ -172,11 +172,11 @@ public class TaskDialogScreen extends javax.swing.JDialog {
 
         JLabelCampoNameObrigatorio.setFont(new java.awt.Font("Inter", 0, 12)); // NOI18N
         JLabelCampoNameObrigatorio.setForeground(new java.awt.Color(204, 0, 0));
-        JLabelCampoNameObrigatorio.setText("Campo obrigatório.");
+        JLabelCampoNameObrigatorio.setText("Required field.");
 
         JLabelCampoDeadlineObrigatorio.setFont(new java.awt.Font("Inter", 0, 12)); // NOI18N
         JLabelCampoDeadlineObrigatorio.setForeground(new java.awt.Color(204, 0, 0));
-        JLabelCampoDeadlineObrigatorio.setText("Campo obrigatório.");
+        JLabelCampoDeadlineObrigatorio.setText("Required field.");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

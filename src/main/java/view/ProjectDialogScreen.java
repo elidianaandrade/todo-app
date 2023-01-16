@@ -122,7 +122,7 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
 
         JLabelCampoNameObrigatorio1.setFont(new java.awt.Font("Inter", 0, 12)); // NOI18N
         JLabelCampoNameObrigatorio1.setForeground(new java.awt.Color(204, 0, 0));
-        JLabelCampoNameObrigatorio1.setText("Campo obrigatório.");
+        JLabelCampoNameObrigatorio1.setText("Required field.");
 
         javax.swing.GroupLayout JPanelFormLayout = new javax.swing.GroupLayout(JPanelForm);
         JPanelForm.setLayout(JPanelFormLayout);
