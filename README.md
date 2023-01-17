@@ -1,3 +1,5 @@
+<img alt="" src="https://github.com/elidianaandrade/todo-app/blob/feature-v1/src/main/resources/todoapp-screen.jpg">
+
 # TODO APP
 
 ## ✅ Sobre o projeto
@@ -17,11 +19,8 @@
 - [x] Deletar uma tarefa.
 
 <img alt="" src="https://github.com/elidianaandrade/todo-app/blob/feature-v1/src/main/resources/todoapp-notasks-screen.JPG">
-<img alt="" src="https://github.com/elidianaandrade/todo-app/blob/feature-v1/src/main/resources/todoapp-screen.jpg">
 <img alt="" src="https://github.com/elidianaandrade/todo-app/blob/feature-v1/src/main/resources/todoapp-projectdialog-screen.JPG">
 <img alt="" src="https://github.com/elidianaandrade/todo-app/blob/feature-v1/src/main/resources/todoapp-taskdialog-screen.JPG">
-
-<br>
 
 ## 🔍 Referências
 
