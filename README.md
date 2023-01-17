@@ -24,5 +24,5 @@
 
 ## 🔍 Referências
 
-- [Repositório do Instrutor Marcio Michelluzzi](https://startcapgemini.com.br/)
+- [Repositório do Instrutor Marcio Michelluzzi](https://github.com/marciomichelluzzi/logicaDeProgramacao-III/tree/main/exerciciosResolvidos/Workspace/TodoApp)
 - [Start By Capgemini](https://startcapgemini.com.br/).
